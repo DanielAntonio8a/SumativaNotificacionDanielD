@@ -1,0 +1,56 @@
+<ion-header>
+  <!-- <ion-toolbar> -->
+    
+    <svg viewBox="0 0 1320 300">
+
+      <!-- Symbol -->
+      <symbol id="s-text">
+        <text text-anchor="middle"
+              x="50%" y="50%" dy=".50em">
+              Nivel de Luz
+        </text>
+      </symbol>  
+    
+      <!-- Duplicate symbols -->
+      <use xlink:href="#s-text" class="text"
+           ></use>
+      <use xlink:href="#s-text" class="text"
+           ></use>
+      <use xlink:href="#s-text" class="text"
+           ></use>
+      <use xlink:href="#s-text" class="text"
+           ></use>
+      <use xlink:href="#s-text" class="text"
+           ></use>
+    </svg>
+  <!-- </ion-toolbar> -->
+</ion-header>
+
+<ion-content>
+  <div class="icon-large icon-weather">
+    <div class="sun">
+    </div>
+    <div class="cloud">
+    </div>
+  </div>
+
+  <ion-item>
+
+    <ion-input type="number" [(ngModel)]="luminosidad"></ion-input>
+  </ion-item>
+  <br><br><br><br><br>
+  <div class="termometro-container">
+    <div class="termometro-bola" [style.bottom]="luminosidad + '%'"></div>
+    <div class="termometro-progress" [style.height]="luminosidad + '%'" [ngClass]="{'frio': luminosidad < 33, 'templado': luminosidad >= 33 && luminosidad < 66, 'calor': luminosidad >= 66}"></div>
+  </div>
+
+  <ion-range class="range-slider" [(ngModel)]="luminosidad" min="0" max="100" pin="true" color="danger">
+    <ion-label slot="start">0%</ion-label>
+    <ion-label slot="end">100%</ion-label>
+  </ion-range>
+
+
+  
+</ion-content>
+
+

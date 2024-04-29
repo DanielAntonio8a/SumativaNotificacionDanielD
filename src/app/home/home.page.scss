@@ -1,0 +1,295 @@
+ion-title{
+  text-align: center;
+}
+#cintainer{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.circular-progress {
+  position: relative;
+  height: 250px;
+  width: 250px;
+  border-radius: 50%;
+  background: conic-gradient(#FFE503 3.6deg, #e3e3e3 0deg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.circular-progress::before {
+  content: "";
+  position: absolute;
+  height: 210px;
+  width: 210px;
+  border-radius: 50%;
+  background-color: #1E1E1F
+}
+.progress-value {
+  position: relative;
+  font-size: 40px;
+  font-weight: 600;
+  color: rgb(255, 255, 255);
+}
+.text {
+  font-size: 28px;
+  font-weight: 500;
+  color: #ffffff;
+}
+
+/* Global styles */
+ion-app {
+  background-color: #f9f9f9;
+  color: #ffffff;
+  font-family: Arial, sans-serif;
+}
+
+/* Header styles */
+ion-header {
+  ion-toolbar {
+      ion-title {
+          text-align: center;
+          font-size: 24px;
+          color: #000;
+      }
+  }
+}
+
+/* Content styles */
+ion-content {
+  #container {
+    background-color: #ddd;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+  }
+
+  .circular-progress {
+      background-color: #ddd;
+      border-radius: 50%;
+      width: 200px;
+      height: 200px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .progress-value {
+          font-size: 24px;
+          font-weight: bold;
+      }
+  }
+}
+
+/* Estilos para la página */
+ion-content {
+  --ion-background-color: #ffffff;
+}
+
+.termometro-container {
+  position: relative;
+  width: 60px; /* Ancho del termómetro */
+  height: 300px; /* Altura del termómetro */
+  background-color: #6a6969;
+  border-radius: 30px;
+  overflow: hidden;
+  margin: 0 auto; /* Centra horizontalmente */
+}
+
+.termometro-progress {
+  background-color: #d61f22;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 20px; /* Ancho de la barra de progreso */
+  transition: height 0.5s ease-in-out;
+  border-bottom-left-radius: 10px; /* Ajusta las esquinas de la barra */
+  border-bottom-right-radius: 10px;
+}
+
+.termometro-bola {
+  background-color: #6a6969;
+  // border: 2px solid #595757;
+  border-radius: 50%;
+  position: absolute;
+  width: 40px; /* Diámetro de la bola */
+  height: 40px;
+  left: 50%;
+  bottom: calc(100% - 20px); /* Posición inicial de la bola */
+  transform: translateX(-50%);
+  transition: bottom 0.5s ease-in-out;
+}
+
+/* Estilos para el ion-range */
+.range-slider {
+  width: 300px; /* Ancho del ion-range */
+  margin: 20px auto; /* Centra horizontalmente */
+}
+
+/* Estilos para los emoticones */
+.emoticon {
+  font-size: 36px;
+  text-align: center;
+  margin-top: -36px;
+}
+
+/* Cambio de color del pin del ion-range */
+.range-pin {
+  background-color: #d61f22 !important;
+}
+
+/* Eliminar bordes en los ion-items */
+ion-item {
+  --inner-border-radius: 0;
+}
+
+
+@mixin centerer {
+  position: absolute;
+  top: 25%;
+  left: 25%;
+  transform: translate(-50%, -50%);
+}
+
+@mixin has-child {
+  &:before, &:after {
+      content: "";
+      display: block;
+      position: absolute;
+  }
+}
+
+html, body {
+  height: 100%;
+  background: #fff;
+  position: relative;
+}
+
+.icon-large {
+  width: 120px;
+  height: 120px;
+  border-radius: 38px;
+  @include centerer;
+}
+
+.icon-weather {
+  overflow: hidden;
+  background: linear-gradient(to bottom, #1d61f0 , #19d6fd );
+
+}
+.sun{
+width:54px;
+height:54px;
+border-radius:50%;
+background:linear-gradient(to bottom, #ffc600  , #ffe828  );
+
+position:absolute;
+top:25px;
+left:30px;
+
+}
+@keyframes float{
+0%{
+  transform:translate(-10px,0); opacity:.95;
+}
+100%{
+transform:translate(30px,0);   opacity:.65;
+}
+}
+.cloud{
+position:absolute;
+top:45px;
+left:20px;
+
+opacity:.95;
+margin:30px;
+animation:float 3s linear infinite alternate;
+ @include has-child;
+
+&:before{
+  width:84px;
+  height:48px;
+  background:#fff;
+}
+&:after{
+    width:48px;
+  height:48px;
+  border-radius:50%;
+    background:#fff;
+  position:absolute;
+  top:0;
+  left:-24px;
+  
+  box-shadow:80px -9px 0 9px #fff,38px -25px 0 20px #fff;
+  
+}
+}
+
+
+
+//
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:800);
+
+.text {
+  fill: none;
+  stroke-width: 6; /* Aumentado de 6 a 9 para un trazo más grueso */
+  stroke-linejoin: round;
+  stroke-dasharray: 70 330;
+  stroke-dashoffset: 0;
+  font-family: 'Open Sans', sans-serif; /* Asegurándonos de que la familia de fuentes se aplique */
+  font-size: 50px; /* Aumenta el tamaño de la fuente aquí */
+  -webkit-animation: stroke 6s infinite linear;
+  animation: stroke 6s infinite linear;
+}
+
+.text:nth-child(5n + 1) {
+  stroke: #0000002f;
+  -webkit-animation-delay: -1.2s;
+  animation-delay: -1.2s;
+}
+.text:nth-child(5n + 2) {
+  stroke: #000000;
+  -webkit-animation-delay: -2.4s;
+  animation-delay: -2.4s;
+}
+
+.text:nth-child(5n + 3) {
+  stroke: #5f5a5a;
+  -webkit-animation-delay: -3.6s;
+  animation-delay: -3.6s;
+}
+
+.text:nth-child(5n + 4) {
+  stroke: #000000;
+  -webkit-animation-delay: -4.8s;
+  animation-delay: -4.8s;
+}
+
+.text:nth-child(5n + 5) {
+  stroke: #413f3f;
+  -webkit-animation-delay: -6s;
+  animation-delay: -6s;
+}
+
+@-webkit-keyframes stroke {
+  100% {
+    stroke-dashoffset: -400;
+  }
+}
+
+@keyframes stroke {
+  100% {
+    stroke-dashoffset: -400;
+  }
+}
+
+
+svg {
+  margin-left: -40%;
+  margin-top: -80px;
+  position: absolute;
+  width: 700px;
+    height: 200px;
+}
